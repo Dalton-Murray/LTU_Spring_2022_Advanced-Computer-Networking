@@ -1,0 +1,130 @@
+Delivered-To: dmurray2@ltu.edu
+Received: by 2002:a54:31c2:0:0:0:0:0 with SMTP id d2csp3584979ecs;
+        Sun, 26 Dec 2021 20:48:58 -0800 (PST)
+X-Received: by 2002:a25:2d59:: with SMTP id s25mr13367698ybe.682.1640580537911;
+        Sun, 26 Dec 2021 20:48:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1640580537; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TONMeiMV7KwmX2l2Qvj99SjSKuqSTpJB6Vn5wuaZqefWxgoU/F2RufQI1VaXTJuv9e
+         2bxyWUuMW/9lTPwqYsMIt7WfMvm6v49ovIsuMburGtDDx3SdY8vJ9+fC5WXJ2dgnS0hj
+         MbrSC33T6r293DM/rVwXZ1euPLY0oWrgrfgsEDB7doOaz2tXvDfpichEGcVAzXbVGx75
+         bjmMrbwDk7kFq9z6ydPevzrXOfuDaNEBFHaLs0jK5jsevqVCsxSCiERT1cNwXr+AHqeJ
+         Ypo4Mv9SistKiAr/DURJq7TKTGHOc5qItaQtwGovviZ/uihZjcOLqzYIZ+dk+vhGiQGi
+         IuQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=PCrNg6O7qvXNuIcl7AEqUKarT9Q2ELA/siisMBIMyto=;
+        b=DLANvZACbS5DOuCIBs1gbUM9HW3rVIbrhW/pDi23K9frfGu+zn0OEGkN4YYWJyRtrz
+         xXhtngRMRgscf9+M8N+Y7AOMHmB/q44OQdpQI2SILtuhx2g8x2qki9w68LmvZPndO3o3
+         RCODHYlQWXPrvRw/LJnFPeufjtp4uuLcSVa7sxd5PfF8qO0MnDxaMnzp4Nv4+wOdzdDJ
+         pVRPyoZKLkvzeSk3u3Q4hURURtfEexjVN9kA+Xc+ZH0k4ll0J13l+tHkJAit3KJfn3b5
+         HEU0PhRF3rl48HbvF4NRgtQAPDKY0KHQza5QdMjpMNRvvY1fuV+I+EM2B21p5Bhb5gVy
+         nIbg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ltu-edu.20210112.gappssmtp.com header.s=20210112 header.b=pSXVDEk+;
+       spf=pass (google.com: domain of zgwarzo@ltu.edu designates 209.85.220.41 as permitted sender) smtp.mailfrom=zgwarzo@ltu.edu
+Return-Path: <zgwarzo@ltu.edu>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id k63sor1794519ybf.49.2021.12.26.20.48.57
+        for <dmurray2@ltu.edu>
+        (Google Transport Security);
+        Sun, 26 Dec 2021 20:48:57 -0800 (PST)
+Received-SPF: pass (google.com: domain of zgwarzo@ltu.edu designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ltu-edu.20210112.gappssmtp.com header.s=20210112 header.b=pSXVDEk+;
+       spf=pass (google.com: domain of zgwarzo@ltu.edu designates 209.85.220.41 as permitted sender) smtp.mailfrom=zgwarzo@ltu.edu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ltu-edu.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=PCrNg6O7qvXNuIcl7AEqUKarT9Q2ELA/siisMBIMyto=;
+        b=pSXVDEk+sFhI29Ws08JD8/vLU3bO+RH3N8ao55L2e10iY10aOt+XuomgLMYzI34rxq
+         OvsdH45BvZo55NtCTGnhVpbsBSHn6GCQYxyPfmDnQzEyXufM7CRCGnfBzD9ndDPUpWHb
+         4vR2s2ALKnKlQej/2esmOTDDW9+3TctPV5O7bDz+SnIea8xGXs68UuKgnwjgZdmWX5YU
+         JAM9gaHZMUyxgKo1pJR7RVtKtBZtH9Uhgx4QYJaZedFsvinKqI6qcqrGpxWbTOoTMR+i
+         /fCJ7YNVJQ260deUlF9ptEhzXWGdtzlL1JH1JAkOXov435RMpUJoKznP8L8zxF6cbOtx
+         zgVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=PCrNg6O7qvXNuIcl7AEqUKarT9Q2ELA/siisMBIMyto=;
+        b=g8cIUNAnGhtqPf4EGjdpbmVV7laQ1e5WjtbngTthQwoK22Wk6rhSj6bzi4WPmMh+O0
+         IyNqus62ZH21GTlchs+0cvFdkZUeYSv/73+FheLXc1YUwPmixWWiDArVdxwc5NQdhaWw
+         uMrhgLfRNazZ39vhzNn+lZOTAYTmyjWCGDr4pL9NlnspYsAbB++AAqM8ZrMSRMr/ulSY
+         K7QM7jrr6hS3v6ImvKXSMfMxceGYhbE/vS2oU1c/3IlHLN/BRYNIyQ32IFgC2VGJXXQB
+         GsM8UncAtT0Lev3nMkliWZu1x6u2zDYm3GWpH1NzCdKxpEhCuAVUOwONQ1p6ovxr5To7
+         btUQ==
+X-Gm-Message-State: AOAM5336j5Sb1HbMSce1IIp/gyHzWZRi6rW8do8gOn/nO5mhhtTgK3vz
+	oQKJBnSP3JoEqVvh/UTpJkHGpC37onvWQ9BiiOu0i2sPl1SsmYFnYkBdkni5L2sYqu49H/yG879
+	h+JkYpA3+83zlZVZkdEJtPf97u1I=
+X-Google-Smtp-Source: ABdhPJxVs56Zxgr2H/9n68KXgU5mfo05BLxSlyehtI5tLIiPkUPd4uh54FruLLBd1+53g7drncT6Sp2AZmfKmNxfm4A=
+X-Received: by 2002:a25:8387:: with SMTP id t7mr19782638ybk.424.1640580537168;
+ Sun, 26 Dec 2021 20:48:57 -0800 (PST)
+MIME-Version: 1.0
+References: <CAD9ACL3Y5ciZg3LnYTK80hnqOf52tJ3M3X7+s3xcG8B7SErcgQ@mail.gmail.com>
+In-Reply-To: <CAD9ACL3Y5ciZg3LnYTK80hnqOf52tJ3M3X7+s3xcG8B7SErcgQ@mail.gmail.com>
+From: Zahraddeen Gwarzo <zgwarzo@ltu.edu>
+Date: Sun, 26 Dec 2021 23:48:46 -0500
+Message-ID: <CAHVGZseLy2w7kdwSZO0UOuKB9hKRsaF1dn_V0FWY02WzcoWCYA@mail.gmail.com>
+Subject: Re: Advanced Computer Networking - Spring 2022 - INT 6143
+To: Dalton Murray <dmurray2@ltu.edu>
+Content-Type: multipart/alternative; boundary="00000000000024d6ab05d4196ca2"
+X-Gm-LTUInternal: 1
+X-Gm-Spam: 0
+X-Gm-LTUInternal: 1
+X-Gm-Spam: 0
+
+--00000000000024d6ab05d4196ca2
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Dalton,
+
+Thanks for your email. Yes, this is correct.
+
+Good to have you back in my class. Let me know if you have any questions.
+
+Dr. Zahraddeen
+
+On Fri, Dec 24, 2021 at 4:08 PM Dalton Murray <dmurray2@ltu.edu> wrote:
+
+> Hello Professor,
+>
+> I hope you are doing well and having a great break!
+>
+> I will be attending your advanced computer networking course next
+> semester, spring 2022, and was curious what the required books are.
+>
+> If this is correct, please let me know:
+> Business Data Communications and Networking
+> By Fitzgerald, Jerry
+> Edition: 14TH 21
+> Publisher: WILEY
+> ISBN 13: 9781119702849
+>
+> Dalton Murray
+>
+
+--00000000000024d6ab05d4196ca2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr">Hi=C2=A0Dalton,<div><br></div><div>Thanks=
+ for your email. Yes, this is correct.=C2=A0</div><div><br></div><div>Good =
+to have you back in my class. Let me know if you have any questions.</div><=
+div><br></div><div>Dr. Zahraddeen</div></div></div><br><div class=3D"gmail_=
+quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Dec 24, 2021 at 4:08 P=
+M Dalton Murray &lt;<a href=3D"mailto:dmurray2@ltu.edu">dmurray2@ltu.edu</a=
+>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px=
+ 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><di=
+v dir=3D"ltr">Hello Professor,<div><br></div><div>I hope you are doing well=
+ and having a great break!</div><div><br></div><div>I will be attending you=
+r advanced=C2=A0computer networking course next semester, spring 2022, and =
+was curious what the required books are.</div><div><br></div><div>If this i=
+s correct, please let me know:</div><div>Business Data Communications and N=
+etworking<br></div><div>By Fitzgerald, Jerry<br>Edition: 14TH 21<br>Publish=
+er: WILEY<br>ISBN 13: 9781119702849<br></div><div><br></div><div>Dalton Mur=
+ray</div></div>
+</blockquote></div>
+
+--00000000000024d6ab05d4196ca2--
